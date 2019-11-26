@@ -1,0 +1,9 @@
+#content {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#gameplay {
+    flex-direction: row;
+    justify-content: space-around;
+}

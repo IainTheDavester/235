@@ -1,0 +1,54 @@
+h1 {
+    font-size: 36pt;
+    font-family: 'Staatliches', cursive;
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+blockquote {
+    display: block;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    background-image: url('media/scott-pilgrim-vs-the-world-geek-n-rock.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    width: 40vw;
+    font-size: 40pt;
+    color: #000000;
+    text-align: center;
+    padding-top: 20vh;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    font-family: 'Indie Flower', cursive;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+body {
+    background-color: #638bb1;
+}
+
+#reloadQuote{
+    border-radius: 8px;
+    background-color: #185ea0;
+    color: #ffffff;
+    border: none;
+    font-size: 20pt;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align: center;
+    margin-left: 45vw;
+    margin-right: 45vw;
+}
+
+#reloadQuote:hover{
+    background-color: #7aa9d4;
+}
+
+#reloadQuote:active{
+    background-color: #7aa9d4;
+    color: #505050;
+}

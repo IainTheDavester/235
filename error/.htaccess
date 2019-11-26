@@ -1,0 +1,2 @@
+ErrorDocument 404 /icd1636/235/error/error.html
+DirectoryIndex noterror.html

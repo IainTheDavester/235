@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Phrases</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Staatliches&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Random Scott Pilgrim Quotes - Iain Davis</h1>
+    </header>
+
+    <main>
+        <!--<img src="media/Scott_p_by_radiomaru.png" alt="Background Image"> -->
+
+        <blockquote id="quote"></blockquote>
+
+        <button id="reloadQuote">New Quote</button>
+
+        <script>
+            var quotes = ["Scott Pilgrim: What is the website for Amazon.ca? <br>Wallace Wells: Amazon.ca.",
+                "Stephen Stills: I'm afraid I have some bad news. <br>Kim Pine: Is it the news that we suck? Because I really don't think I can take it.",
+                "Scott Pilgrim: You once were a ve-gone, but now you will be gone! <br>Todd Ingram: Ve-gone?",
+                "Scott Pilgrim: You know what sucks the most? <br>Wallace Wells: What? <br>Scott Pilgrim: Everything...",
+                "Scott Pilgrim: This sucks. I'm gonna pee due to boredom."
+            ];
+
+            var quote = document.getElementById("quote");
+            quote.innerHTML = quotes[Math.floor(Math.random() * 5)];
+
+            function displayQuote() {
+                quote.innerHTML = quotes[Math.floor(Math.random() * 5)];
+            }
+
+            document.getElementById("reloadQuote").onclick = displayQuote;
+        </script>
+    </main>
+</body>
+
+</html>

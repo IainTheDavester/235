@@ -1,0 +1,75 @@
+.bold{
+    font-weight: bold;
+}
+
+h1{
+    color: #6B7EFF;
+    font-family: 'Fjalla One', sans-serif;
+    margin-left: 8vw;
+    border-bottom: 1px solid #5BEB75;
+}
+
+h2{
+    color: #6B7EFF;
+    font-family: 'Fjalla One', sans-serif;
+}
+h2#projects{
+    font-size: 20pt;
+    font-family: 'Josefin Sans', sans-serif;
+}
+h2#bio{
+    border-bottom: 1px solid #5BEB75;
+}
+
+main{
+    background-color: #61BCE8;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+footer{
+    background-color: #61BCE8;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+
+body{
+    background-color: #78FFDF;
+    padding: 2em;
+}
+
+p{
+    background-color: #61BCE8;
+    color: #B3FF68;
+    padding: 0 2em;
+    margin: 0 1em;
+    font-family: 'Chilanka', cursive;
+}
+
+img{
+    float: left;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #5BEB75;
+    margin-right: 1em;
+}
+
+a{
+    background-color: #61BCE8;
+    font-family: 'Josefin Sans', sans-serif;
+}
+a.projects{
+    font-style: italic;
+}
+a:link{
+    color: #78FFDF;
+}
+a:visited{
+    color: #6B7EFF;
+}
+a:hover{
+    background-color: #B3FF68;
+}
+a:active{
+    background-color: #5BEB75;
+}

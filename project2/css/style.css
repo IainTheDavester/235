@@ -1,0 +1,41 @@
+body{
+    background-color:#6969FF;
+    color: #B39825
+}
+.group{
+    display:flex;
+    background-color: #0E0FB3;
+    margin: 0 0 0 2rem;
+}
+.control{
+    margin: 0 0 0 2rem;
+    color: #B39825;
+}
+#controls{
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+ul{
+    margin-block-start: 0;
+    background-color: #0E0FB3;
+}
+#reset{
+    margin: 0 2rem 0 0;
+}
+li .control{
+    margin: 0;
+    background-color: #A5A5FA;
+}
+#setR{
+    background-color: red;
+    color: black;
+}
+#setG{
+    background-color: green;
+    color: black;
+}
+#setB{
+    background-color: blue;
+    color: grey;
+}

@@ -1,0 +1,65 @@
+body {
+    background-color: #3D0B0A;
+}
+
+img {
+    border: 3px solid #573534;
+    outline: 5px solid #8A1917;
+    margin: 5px;
+}
+
+p {
+    padding: 0 1rem 2rem 2rem;
+    font-family: 'Roboto Slab', serif;
+}
+
+main {
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+h2 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+a {
+    transition-duration: .5s;
+    color: #8A1917;
+}
+
+a:hover {
+    font-size: 1.2rem;
+    color: #D62724;
+}
+
+a:visited {
+    color: #573534;
+}
+
+.sideChunk {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chunk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121111;
+    color: #D62724;
+    margin: 30px;
+    padding: 5px;
+    max-width: 20rem;
+    border-radius: 10px;
+}
+
+.flexwrapper {
+    display: flex;
+}

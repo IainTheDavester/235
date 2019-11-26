@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 2</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div id="controls">
+            Specific Word: <input type="text" class="control" id="specific text">
+            <button type="button" id="reset" class="control">Reset</button>
+            <ul>
+                <li>Set R<input type="text" id="setR" class="control"><span><input type="checkbox" id="freezeR" class="control">Freeze R</span></li>
+                <li>Set G<input type="text" id="setG" class="control"><span><input type="checkbox" id="freezeG" class="control">Freeze G</span></li>
+                <li>Set B<input type="text" id="setB" class="control"><span><input type="checkbox" id="freezeB" class="control">Freeze B</span></li>
+            </ul>
+            <div id="sort" class="group">
+                Sort by:
+                <ul>
+                    <li><input type="radio" name="sort" value="RValue" class="control">R value</li>
+                    <li><input type="radio" name="sort" value="GValue" class="control">G value</li>
+                    <li><input type="radio" name="sort" value="BValue" class="control">B value</li>
+                </ul>
+            </div>
+            <button type="button" id="search" class="control">Search</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="appDisplay">
+            
+        </div>
+    </main>
+</body>
+
+</html>

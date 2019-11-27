@@ -1,41 +1,113 @@
-body{
-    background-color:#6969FF;
-    color: #B39825
+body {
+    background-color: #6969FF;
+    color: #B39825;
+    font-family: 'Oswald', sans-serif;
 }
-.group{
-    display:flex;
+
+.group {
+    display: flex;
     background-color: #0E0FB3;
     margin: 0 0 0 2rem;
+    border-radius: 10px;
 }
-.control{
+
+.control {
     margin: 0 0 0 2rem;
     color: #B39825;
+    padding: 2px;
 }
-#controls{
-    display:flex;
+
+#controls {
+    display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
 }
-ul{
+
+ul {
     margin-block-start: 0;
     background-color: #0E0FB3;
+    border-radius: 10px;
 }
-#reset{
+
+#reset {
     margin: 0 2rem 0 0;
 }
-li .control{
+
+li .control {
     margin: 0;
     background-color: #A5A5FA;
 }
-#setR{
+
+#setR {
     background-color: red;
     color: black;
 }
-#setG{
+
+#setG {
     background-color: green;
     color: black;
 }
-#setB{
+
+#setB {
     background-color: blue;
     color: grey;
+}
+
+span {
+    padding: 2px;
+}
+
+.freeze {
+    padding-left: 1rem;
+}
+
+button {
+    background-color: #0E0FB3;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    transition-duration: .5s;
+    font-size: 2rem;
+}
+
+button:hover {
+    background-color: #A5A5FA;
+}
+
+button:active {
+    transition-duration: 0s;
+    color: red;
+}
+
+.textBox {
+    border: none;
+    padding: 2px;
+}
+
+.specific {
+    display: flex;
+    align-items: center;
+    background-color: #0E0FB3;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.entry {
+    display: flex;
+    align-items: center;
+    background-color: #FFF2BA;
+    border-radius: 10px;
+    margin: 5px;
+    justify-content: flex-start;
+}
+
+.word {
+    background-color: #fefefe;
+    border-radius: 10px;
+    text-align: center;
+    color: #B39825;
+    padding: 3vw;
+    font-family: 'Roboto Slab', serif;
 }

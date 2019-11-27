@@ -7,24 +7,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 2</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Permanent+Marker|Roboto+Slab&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="scripts/populate.js"></script>
 </head>
 
 <body>
     <header>
+        <h1>Definitive Hex Finder</h1>
         <div id="controls">
-            Specific Word: <input type="text" class="control" id="specific text">
+            <div class="specific">
+                <h2>Specific Word: </h2><input type="text" class="control textBox" id="specificText">
+            </div>
             <button type="button" id="reset" class="control">Reset</button>
             <ul>
-                <li>Set R<input type="text" id="setR" class="control"><span><input type="checkbox" id="freezeR" class="control">Freeze R</span></li>
-                <li>Set G<input type="text" id="setG" class="control"><span><input type="checkbox" id="freezeG" class="control">Freeze G</span></li>
-                <li>Set B<input type="text" id="setB" class="control"><span><input type="checkbox" id="freezeB" class="control">Freeze B</span></li>
+                <li><span>Set R</span><input type="text" id="setR" class="control textBox"><span class="freeze"><input
+                            type="checkbox" id="freezeR" class="control"><span>Freeze R</span></span>
+                </li>
+                <li><span>Set G</span><input type="text" id="setG" class="control textBox"><span class="freeze"><input
+                            type="checkbox" id="freezeG" class="control"><span>Freeze G</span></span>
+                </li>
+                <li><span>Set B</span><input type="text" id="setB" class="control textBox"><span class="freeze"><input
+                            type="checkbox" id="freezeB" class="control"><span>Freeze B</span></span>
+                </li>
             </ul>
             <div id="sort" class="group">
                 Sort by:
                 <ul>
-                    <li><input type="radio" name="sort" value="RValue" class="control">R value</li>
-                    <li><input type="radio" name="sort" value="GValue" class="control">G value</li>
-                    <li><input type="radio" name="sort" value="BValue" class="control">B value</li>
+                    <li><input type="radio" id="RValue" name="sort" value="RValue" class="control"><span>R value</span>
+                    </li>
+                    <li><input type="radio" id="GValue" name="sort" value="GValue" class="control"><span>G value</span>
+                    </li>
+                    <li><input type="radio" id="BValue" name="sort" value="BValue" class="control"><span>B value</span>
+                    </li>
                 </ul>
             </div>
             <button type="button" id="search" class="control">Search</button>
@@ -32,10 +49,214 @@
     </header>
 
     <main>
-        <div id="appDisplay">
-            
-        </div>
+        <div id="appDisplay"></div>
     </main>
+    <script>
+        let app;
+        let specific;
+        let reset;
+
+        let setR;
+        let freezeR;
+
+        let setG;
+        let freezeG;
+
+        let setB;
+        let freezeB;
+
+        let sortR;
+        let sortG;
+        let sortB;
+
+        let search;
+
+        let defaultWords = ["Beaded", "Bedded", "Beefed", "Facade", "Accend", "Accede"];
+
+        window.onload = function () {
+            app = document.getElementById("appDisplay");
+            specific = document.getElementById("specificText");
+            reset = document.getElementById("reset");
+
+            setR = document.getElementById("setR");
+            freezeR = document.getElementById("freezeR");
+
+            setG = document.getElementById("setG");
+            freezeG = document.getElementById("freezeG");
+
+            setB = document.getElementById("setB");
+            freezeB = document.getElementById("freezeB");
+
+            sortR = document.getElementById("RValue");
+            sortG = document.getElementById("GValue");
+            sortB = document.getElementById("BValue");
+
+            search = document.getElementById("search");
+
+            let sorts = [sortR, sortG, sortB];
+            let freezes = [freezeR, freezeG, freezeB];
+            let sets = [setR, setG, setB];
+
+            search.onclick = (e) => {
+                let invalid = false;
+                if (specific.value == "") {
+                    searchWords();
+                } else if (specific.value.length == 6) {
+                    for (let i = 0; i < specific.value.length; i++) {
+                        if (!checkValid(specific.value[i])) {
+                            invalid = true;
+                        }
+                    }
+
+                    if (!invalid) {
+                        searchWord(specific.value);
+                    }
+                    else {
+                        throw "Your word must only use the letters a-f!"
+                    }
+                } else {
+                    throw "You need to specify a 6 letter word!";
+                }
+            };
+
+            reset.onclick = (e) => {
+                specific.value = "";
+                for (let i = 0; i < sorts.length; i++) {
+                    sorts[i].checked = false;
+                }
+                for (let i = 0; i < freezes.length; i++) {
+                    freezes[i].checked = false;
+                }
+                for (let i = 0; i < sets.length; i++) {
+                    sets[i].value = "";
+                }
+            }
+
+            for (let i = 0; i < sorts.length; i++) {
+                sorts[i].onclick = (e) => {
+                    if (e.target.value = "RValue" && e.target.checked) {
+                        reorder(i);
+                    }
+                }
+            }
+        }
+
+        function checkValid(c) {
+            if ((c.charCodeAt(0) < 71 && c.charCodeAt(0) > 64) || (c.charCodeAt(0) < 103 && c.charCodeAt(0) > 96)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function reorder(r) {
+            let entries = new Array();
+            for(let i = 0; i < app.childNodes.length; i++){
+                entries[i] = app.childNodes[i].cloneNode(true);
+            }
+            let entryValues = [new Array(entries.length), new Array(entries.length), new Array(entries.length)];
+            while (app.firstChild) {
+                app.removeChild(app.firstChild);
+            }
+            for (let i = 0; i < entries.length; i++) {
+                let tempRGB = entries[i].firstChild.innerText;
+                entryValues[0][i] = tempRGB.substring(0,2);
+                entryValues[1][i] = tempRGB.substring(2, 4);
+                entryValues[2][i] = tempRGB.substring(4, 6);
+            }
+            let tempArray = [new Array(entries.length), new Array(entries.length)];
+            switch (r) {
+                case 0:
+                    for (let i = 0; i < entries.length; i++) {
+                        tempArray[0][i] = entryValues[0][i];
+                        tempArray[1][i] = i;
+                    }
+                    tempArray = sortFunction(tempArray[0], tempArray[1]);
+                    for(let i = 0; i < entries.length; i++){
+                        app.appendChild(entries[tempArray[1][i]]);
+                    }
+                    break;
+                case 1:
+                    for (let i = 0; i < entries.length; i++) {
+                        tempArray[0][i] = entryValues[1][i];
+                        tempArray[1][i] = i;
+                    }
+                    tempArray = sortFunction(tempArray[0], tempArray[1]);
+                    for(let i = 0; i < entries.length; i++){
+                        app.appendChild(entries[tempArray[1][i]]);
+                    }
+                    break;
+                case 2:
+                    for (let i = 0; i < entries.length; i++) {
+                        tempArray[0][i] = entryValues[2][i];
+                        tempArray[1][i] = i;
+                    }
+                    tempArray = sortFunction(tempArray[0], tempArray[1]);
+                    for(let i = 0; i < entries.length; i++){
+                        app.appendChild(entries[tempArray[1][i]]);
+                    }
+                    break;
+            }
+        }
+
+        function sortFunction(a, b){
+            let c = [];
+            for(let i = 0; i < a.length; i++){
+                c[i] = [a[i], b[i]];
+            }
+            c.sort(internalSort);
+            let newArray = [new Array(c.length), new Array(c.length)];
+            for(let i = 0; i < c.length; i++){
+                newArray[0][i] = c[i][0];
+                newArray[1][i] = c[i][1];
+            }
+            return newArray;
+        }
+
+        function internalSort(a, b){
+            if(a[0] > b[0]){
+                return 1;
+            }
+            if(b[0] > a[0]){
+                return -1;
+            }
+            return 0;
+        }
+
+        function searchWords() {
+            for (let i = 0; i < defaultWords.length; i++) {
+                let urlAppend = "https://lingua-robot.p.rapidapi.com/language/v1/entries/en/" + defaultWords[i].toLowerCase();
+                $.ajax({
+                    beforeSend(xhr) {
+                        xhr.setRequestHeader("x-rapidapi-host", "lingua-robot.p.rapidapi.com");
+                        xhr.setRequestHeader("x-rapidapi-key", "13ff383c07msh521568078f7badep1470d2jsn3bb03b9c228d");
+                        xhr.setRequestHeader("Accept", "application/json");
+                    },
+                    dataType: "json",
+                    url: urlAppend,
+                    success: makeEntry
+                })
+            }
+        }
+
+        function searchWord(word) {
+            let urlAppend = "https://lingua-robot.p.rapidapi.com/language/v1/entries/en/" + word.toLowerCase();
+            $.ajax({
+                beforeSend(xhr) {
+                    xhr.setRequestHeader("x-rapidapi-host", "lingua-robot.p.rapidapi.com");
+                    xhr.setRequestHeader("x-rapidapi-key", "13ff383c07msh521568078f7badep1470d2jsn3bb03b9c228d");
+                    xhr.setRequestHeader("Accept", "application/json");
+                },
+                dataType: "json",
+                url: urlAppend,
+                success: makeEntry
+            })
+        }
+
+        function makeEntry(obj) {
+            populate.makeEntry(obj.entries[0].entry, obj.entries[0].lexemes[0].senses[0].definition);
+        }
+    </script>
 </body>
 
 </html>

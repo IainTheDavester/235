@@ -1,0 +1,16 @@
+a{
+    align-self: center;
+}
+
+.webgl-content{
+    border: 3px solid #573534;
+    outline: 5px solid #8A1917;
+    position: static;
+
+}
+
+.description{
+    justify-self: flex-end;
+    color: #D62724;
+    margin: .5rem 15vw .5rem 15vw;
+}

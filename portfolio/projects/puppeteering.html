@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Puppeteering</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGL Build.json", {onProgress: UnityProgress});
-    </script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Puppeteering</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/puppeteering.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Permanent+Marker|Roboto+Slab&display=swap"
+    rel="stylesheet">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGL Build.json", { onProgress: UnityProgress });
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="modular.html">
+        <h1>Modular Dungeon Tiles</h1>
+      </a>
+      <a href="../index.html">
+        <h1>Home</h1>
+      </a>
+      <a href="strength.html">
+        <h1>Strength</h1>
+      </a>
+    </nav>
+  </header>
+
+  <main class="flexwrapper">
+    <h1 class="title">Puppeteering</h1>
+    <a href="../download/Puppeteering.zip">
+      <h2>Download Link</h2>
+    </a>
     <div class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
@@ -21,6 +46,13 @@
         <div class="title">Puppeteering</div>
       </div>
     </div>
-    <a href="../download/Game Dev Club Demo Build.zip">Download Link</a>
-  </body>
+    <h1 class="description">Warning: WebGL Build is non-functional and very buggy. I would reccomend downloading the
+      Windows build from the top</h1>
+    <p class="description">I developed this game with the help of 4 other groupmates during the RIT Game Dev Club Day of
+      the Dead Jam. I was responsible for the hand's
+      animations, handling input, the strings' physics, and positioning the line renderer among other miscellaneous
+      tasks. We built </p>
+  </main>
+</body>
+
 </html>

@@ -1,0 +1,32 @@
+.chunk{
+    padding: 50px 80px 10px 80px;
+    margin: 50px;
+}
+
+iframe{
+    border: 3px solid #573534;
+    outline: 5px solid #8A1917;
+}
+
+h2{
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.description{
+    color: #D62724;
+    padding: 0 20vw 0 20vw;
+}
+
+#splash{
+    width: 860px;
+    height: 557px;
+    transition-duration: .5s;
+}
+
+@media only screen and (max-width: 950px){
+    #splash{
+        height: 372px;
+        width: 573px;
+    }
+}
